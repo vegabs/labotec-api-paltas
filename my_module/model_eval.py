@@ -80,6 +80,10 @@ def selec_mic(meta_path, idx_meta, cls):
     return df
 
 
+def assertlen(st, n):
+    while (len(st) < n):
+        st += " "
+    return st
 
 # MODEL 1 METHODS AND LOAD
 
