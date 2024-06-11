@@ -1,15 +1,12 @@
 import sys
 import os
 import numpy as np
-from PIL import Image, ImageTk
+from PIL import Image
 import cv2
-
 from my_module.model_eval import *
 from my_module.model_eval import predict_status
 from flask import Flask
 from flask import jsonify
-
-
 import __main__
 setattr(__main__, "CustomTrain", CustomTrain)
 
@@ -56,6 +53,10 @@ def assertlen(st, n):
     return st
 
 @app.route("/")
+def hello():
+    return ("LABOTEC Servidor")
+
+@app.route("/analisis")
 def analyze_img():
 
     filename = 'pictures/A01.jpg'
@@ -137,7 +138,6 @@ def analyze_img():
         # print("-----")
         # print(model_response)
         return jsonify(model_response)
-
 
 if __name__ == '__main__':
     # from model_eval import predict_status
